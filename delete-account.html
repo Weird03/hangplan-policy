@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HangPlan - Delete Account</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0A0A0A;
+      color: #E0E0E0;
+      line-height: 1.7;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 900;
+      color: #FF6B35;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      color: #FF5252;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 32px;
+    }
+    .warning-box {
+      background: rgba(255, 82, 82, 0.1);
+      border: 1px solid rgba(255, 82, 82, 0.3);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .warning-box p {
+      color: #FF5252;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .warning-box ul {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+    .warning-box li {
+      color: #FF8A80;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 800;
+      color: #555;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+    input {
+      width: 100%;
+      background: #1E1E1E;
+      border: 1px solid #2A2A2A;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: #F5F5F5;
+      font-weight: 500;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus {
+      border-color: #FF6B35;
+    }
+    input::placeholder {
+      color: #555;
+    }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      cursor: pointer;
+      margin-top: 24px;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-login {
+      background: #FF6B35;
+      color: #000;
+    }
+    .btn-delete {
+      background: #FF5252;
+      color: #fff;
+    }
+    .btn-cancel {
+      background: #1E1E1E;
+      color: #999;
+      border: 1px solid #2A2A2A;
+      margin-top: 12px;
+    }
+    .step { display: none; }
+    .step.active { display: block; }
+    .status {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .status.error { color: #FF5252; }
+    .status.success { color: #00E676; }
+    .confirm-text {
+      color: #CCC;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .confirm-text strong {
+      color: #F5F5F5;
+    }
+    .user-info {
+      background: #141414;
+      border: 1px solid #2A2A2A;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .user-info .email {
+      color: #FF6B35;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .user-info .hint {
+      color: #555;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    .done-box {
+      text-align: center;
+      padding: 40px 0;
+    }
+    .done-box .check {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .done-box h2 {
+      color: #00E676;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .done-box p {
+      color: #999;
+      font-size: 14px;
+    }
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #222;
+      color: #444;
+      font-size: 12px;
+      text-align: center;
+    }
+    a { color: #00E5FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>HANGPLAN</h1>
+    <div class="subtitle">DELETE ACCOUNT</div>
+
+    <!-- Step 1: Login -->
+    <div id="step-login" class="step active">
+      <p class="confirm-text">Sign in to verify your identity before deleting your account.</p>
+
+      <label>EMAIL</label>
+      <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+
+      <label>PASSWORD</label>
+      <input type="password" id="password" placeholder="Your password" autocomplete="current-password">
+
+      <button class="btn btn-login" id="btn-login" onclick="signIn()">SIGN IN</button>
+      <div id="login-status" class="status"></div>
+    </div>
+
+    <!-- Step 2: Confirm deletion -->
+    <div id="step-confirm" class="step">
+      <div class="user-info">
+        <div class="email" id="user-email"></div>
+        <div class="hint">Signed in</div>
+      </div>
+
+      <div class="warning-box">
+        <p>This action is permanent and cannot be undone. Deleting your account will remove:</p>
+        <ul>
+          <li>Your profile and personal information</li>
+          <li>All hangouts you created</li>
+          <li>Your RSVPs, comments, and votes</li>
+          <li>Carpool offers and expense records</li>
+          <li>Group chat messages</li>
+          <li>Your membership in all groups</li>
+        </ul>
+      </div>
+
+      <label>TYPE "DELETE" TO CONFIRM</label>
+      <input type="text" id="confirm-input" placeholder="DELETE" oninput="checkConfirm()">
+
+      <button class="btn btn-delete" id="btn-delete" disabled onclick="deleteAccount()">DELETE MY ACCOUNT</button>
+      <button class="btn btn-cancel" onclick="cancel()">CANCEL</button>
+      <div id="delete-status" class="status"></div>
+    </div>
+
+    <!-- Step 3: Done -->
+    <div id="step-done" class="step">
+      <div class="done-box">
+        <div class="check">&#10003;</div>
+        <h2>ACCOUNT DELETED</h2>
+        <p>Your account and all associated data have been permanently removed. You can close this page.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Questions? Contact <a href="mailto:hangplanapp@gmail.com">hangplanapp@gmail.com</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://zboorjnvmdulpioqprvg.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpib29yam52bWR1bHBpb3FwcnZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2ODE0NjIsImV4cCI6MjA4ODI1NzQ2Mn0.zR9LGBXe_Pq9P9jq4xYti1U6ZwnXJ3VSYnrT6z7w51k';
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    function showStep(step) {
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-' + step).classList.add('active');
+    }
+
+    async function signIn() {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const status = document.getElementById('login-status');
+      const btn = document.getElementById('btn-login');
+
+      if (!email || !password) {
+        status.className = 'status error';
+        status.textContent = 'Please enter your email and password.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'SIGNING IN...';
+      status.textContent = '';
+
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        status.className = 'status error';
+        status.textContent = error.message;
+        btn.disabled = false;
+        btn.textContent = 'SIGN IN';
+        return;
+      }
+
+      document.getElementById('user-email').textContent = data.user.email;
+      showStep('confirm');
+    }
+
+    function checkConfirm() {
+      const val = document.getElementById('confirm-input').value.trim().toUpperCase();
+      document.getElementById('btn-delete').disabled = val !== 'DELETE';
+    }
+
+    async function deleteAccount() {
+      const status = document.getElementById('delete-status');
+      const btn = document.getElementById('btn-delete');
+
+      btn.disabled = true;
+      btn.textContent = 'DELETING...';
+      status.textContent = '';
+
+      const { error } = await supabase.rpc('delete_own_account');
+
+      if (error) {
+        status.className = 'status error';
+        status.textContent = 'Error: ' + error.message;
+        btn.disabled = false;
+        btn.textContent = 'DELETE MY ACCOUNT';
+        return;
+      }
+
+      await supabase.auth.signOut();
+      showStep('done');
+    }
+
+    function cancel() {
+      supabase.auth.signOut();
+      document.getElementById('confirm-input').value = '';
+      document.getElementById('delete-status').textContent = '';
+      showStep('login');
+    }
+
+    // Allow Enter key to submit
+    document.getElementById('password').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') signIn();
+    });
+  </script>
+</body>
+</html>
