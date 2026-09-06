@@ -35,16 +35,21 @@ nav.links .navcta { color: var(--primary); }
 .closing .lead { margin: 0 auto; max-width: 440px; }
 
 @media (max-width: 860px) {
-  .stage { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 20px; align-items: start; padding-top: 12px; }
+  .story { width: 100%; margin-left: 0; }
+  .stage { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); gap: 14px; align-items: start; padding: 10px 0 12px; }
   .device-col { order: -1; }
-  .steps { align-self: start; }
-  .step { text-align: center; align-items: center; display: flex; flex-direction: column; }
-  .step h1, .step h2 { font-size: 30px; }
-  .step .lead { font-size: 16px; }
-  .ctas { justify-content: center; }
-  .scrollhint { margin-top: 20px; }
-  .rail { justify-content: center; margin-top: 20px; }
+  .left { align-self: start; min-height: 0; }
+  .step { text-align: center; align-items: center; display: flex; flex-direction: column; padding: 0 4px; }
+  .step h1, .step h2 { font-size: 27px; margin: 8px 0 10px; letter-spacing: -0.6px; }
+  .step .lead { font-size: 15px; line-height: 1.45; max-width: 420px; }
+  .eyebrow { font-size: 10px; }
+  .ctas { justify-content: center; margin-top: 16px; }
+  .ctas .cta { padding: 12px 18px; font-size: 14px; }
+  .ctas .cta.secondary { display: none; }
+  .scrollhint { margin-top: 14px; font-size: 11px; }
+  .rail { justify-content: center; margin-top: 14px; }
   nav.links .navcta { display: none; }
+  .device { box-shadow: 0 24px 60px rgba(0,0,0,.6), inset 0 0 0 2px #1A1A1E; }
 }
 
 /* ---------- the phone ---------- */

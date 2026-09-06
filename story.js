@@ -235,9 +235,10 @@
   function layout() {
     mobile = window.innerWidth <= 860;
     var vh = window.innerHeight, vw = window.innerWidth, s;
-    if (mobile) s = Math.min(0.52, (vh * 0.5 - 40) / 844, (vw - 60) / 390);
+    // Mobile: the phone gets whatever is left after ~330px of copy below it.
+    if (mobile) s = Math.min(0.5, (vh - 330) / 844, (vw - 64) / 390);
     else s = Math.min(0.9, (vh - 110) / 844, (vw - 560) / 390);
-    s = Math.max(0.42, s);
+    s = Math.max(0.34, s);
     document.documentElement.style.setProperty('--s', s.toFixed(3));
     story.style.height = ((N + 1) * vh) + 'px';
   }
@@ -253,7 +254,11 @@
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', function () { layout(); onScroll(); });
+  var lastW = window.innerWidth, lastH = window.innerHeight;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth !== lastW || Math.abs(window.innerHeight - lastH) > 140) { lastW = window.innerWidth; lastH = window.innerHeight; layout(); }
+    onScroll();
+  });
   document.addEventListener('visibilitychange', function () { if (document.hidden) clearAll(); else if (active) run(active); });
   layout();
   update();
