@@ -27,27 +27,108 @@
         <a class="cta" href="#" id="store-link">Get it on the App Store</a>
         <a class="cta secondary" href="support.html">Questions?</a>
       </div>
-      <div class="phone" aria-hidden="true">
-        <div class="card">
-          <div class="label"><span class="dot"></span>THE PARTIERS</div>
-          <div class="big">Nachos then a movie</div>
-          <div class="sub">Fri Sep 11 · 7:00 PM · Nacho House, then 1 more stop</div>
-          <div class="rsvp"><span class="in">I'M IN</span><span>MAYBE</span><span>CAN'T</span></div>
+      <div class="phone" id="demo" aria-hidden="true">
+        <div class="screen">
+
+          <!-- 1. RSVP -->
+          <div class="scene" data-scene="rsvp">
+            <div class="card">
+              <div class="label"><span class="dot"></span>THE PARTIERS</div>
+              <div class="big">Nachos then a movie</div>
+              <div class="sub">Fri Sep 11 · 7:00 PM · Nacho House, then 1 more stop</div>
+              <div class="rsvp">
+                <span class="opt" data-k="in">I'M IN</span>
+                <span class="opt" data-k="maybe">MAYBE</span>
+                <span class="opt" data-k="no">CAN'T</span>
+                <div class="tap"></div>
+              </div>
+            </div>
+            <div class="card faces">
+              <div class="label">WHO'S IN</div>
+              <div class="row">
+                <span class="face f1">A</span><span class="face f2">J</span><span class="face f3">M</span><span class="face f4 you">YOU</span>
+                <span class="count"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Poll grid -->
+          <div class="scene" data-scene="poll">
+            <div class="card">
+              <div class="label"><span class="dot" style="background:var(--going)"></span>WHEN ARE YOU FREE?</div>
+              <div class="grid">
+                <div class="gh"></div><div class="gh">THU</div><div class="gh">FRI</div><div class="gh">SAT</div><div class="gh">SUN</div>
+              </div>
+              <div class="best"><span class="pill">BEST WINDOW</span> Fri 7–9 PM · everyone free</div>
+            </div>
+          </div>
+
+          <!-- 3. Advanced planning timeline -->
+          <div class="scene" data-scene="plan">
+            <div class="card">
+              <div class="label"><span class="dot" style="background:var(--accent)"></span>THE PLAN <span class="gold">✦ PLANPLUS</span></div>
+              <div class="tl">
+                <div class="stop st1"><div class="t">7:00</div><div class="bar"></div><div><div class="name">Nacho House</div><div class="sub">1 hr · meet here</div></div></div>
+                <div class="drive d1"><div class="t"></div><div class="bar"></div><div class="sub">🚗 12 min drive</div></div>
+                <div class="stop st2"><div class="t">8:15</div><div class="bar"></div><div><div class="name">Movie</div><div class="sub">2 hr 10 · tickets bought</div></div></div>
+                <div class="drive d2"><div class="t"></div><div class="bar"></div><div class="sub">🚗 6 min drive</div></div>
+                <div class="stop st3"><div class="t">10:30</div><div class="bar"></div><div><div class="name">Ice cream</div><div class="sub">30 min · optional</div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Cars -->
+          <div class="scene" data-scene="cars">
+            <div class="card">
+              <div class="label"><span class="dot" style="background:var(--amber)"></span>CARS</div>
+              <div class="car">
+                <div class="drv"><span class="face f1">A</span><div><div class="name">Alex's car</div><div class="sub">Leaves 6:25 · picks you up 6:40</div></div></div>
+                <div class="seats"><span class="seat s1"></span><span class="seat s2"></span><span class="seat s3"></span><span class="seat s4"></span></div>
+              </div>
+              <div class="car">
+                <div class="drv"><span class="face f3">M</span><div><div class="name">Morgan's car</div><div class="sub">Leaves 6:35</div></div></div>
+                <div class="seats"><span class="seat s5"></span><span class="seat s6"></span><span class="seat"></span></div>
+              </div>
+              <div class="note">Everyone drives themselves unless they grab a seat.</div>
+            </div>
+          </div>
+
+          <!-- 5. Live -->
+          <div class="scene" data-scene="live">
+            <div class="card live">
+              <div class="label"><span class="dot pulse" style="background:var(--going)"></span>HAPPENING NOW</div>
+              <div class="big">Nacho House</div>
+              <div class="status"><span class="st omw">ON THE WAY · 6 min</span><span class="st here">WE'RE HERE 🎉</span></div>
+              <div class="row">
+                <span class="face f1 here">A</span><span class="face f2 here">J</span><span class="face f3 here">M</span><span class="face f4 you here">YOU</span>
+              </div>
+              <div class="next"><span class="pill blue">NEXT</span> Movie · 9:15 · 4 min drive</div>
+            </div>
+            <div class="confetti"></div>
+          </div>
+
+          <!-- 6. Money -->
+          <div class="scene" data-scene="money">
+            <div class="card">
+              <div class="label"><span class="dot" style="background:var(--going)"></span>MONEY</div>
+              <div class="exp e1"><span class="face f1">A</span><div class="grow"><div class="name">Nachos</div><div class="sub">Alex paid · split 4 ways</div></div><div class="amt">$48</div></div>
+              <div class="exp e2"><span class="face f2">J</span><div class="grow"><div class="name">Movie tickets</div><div class="sub">Jordan paid · split 4 ways</div></div><div class="amt">$56</div></div>
+              <div class="owe"><div><div class="sub">YOU OWE</div><div class="big owe-amt">$26</div></div><button class="pay" type="button"><span class="p1">PAY</span><span class="p2">PAID ✓</span></button></div>
+            </div>
+          </div>
+
         </div>
-        <div class="card">
-          <div class="label"><span class="dot" style="background: var(--amber)"></span>CARS</div>
-          <div class="sub" style="margin-top:8px">Alex's car · leaves 6:25 · 2 seats open</div>
-        </div>
+        <div class="dots"><i data-scene="rsvp"></i><i data-scene="poll"></i><i data-scene="plan"></i><i data-scene="cars"></i><i data-scene="live"></i><i data-scene="money"></i></div>
       </div>
     </section>
 
     <section class="features">
-      <div class="feature"><div class="ic">🗳️</div><h3>Polls that decide</h3><p>Paint when you're free and the app finds the window. Vote on the place. Ties spin a wheel.</p></div>
-      <div class="feature"><div class="ic">🗺️</div><h3>Advanced Planning <span class="gold">✦ PLANPLUS</span></h3><p>Stops, drive times, and timing on a drag timeline. Everyone sees the same plan.</p></div>
-      <div class="feature"><div class="ic">🚗</div><h3>Cars that sort themselves</h3><p>Tap a seat. The driver gets pickup order and leave-by times; riders get "be outside by".</p></div>
-      <div class="feature"><div class="ic">📍</div><h3>Live when it starts</h3><p>Who's here, who's on the way, what's next. One button for the driver, confetti when the car lands.</p></div>
-      <div class="feature"><div class="ic">💌</div><h3>Personal plans</h3><p>Dates and 1-on-1s outside any group, with invitations that feel like an event.</p></div>
-      <div class="feature"><div class="ic">💸</div><h3>Money, settled</h3><p>Split what was spent and see exactly what you owe, with a Pay button.</p></div>
+      <div class="feature" data-feature="poll"><div class="ic">🗳️</div><h3>Polls that decide</h3><p>Paint when you're free and the app finds the window. Vote on the place. Ties spin a wheel.</p></div>
+      <div class="feature" data-feature="plan"><div class="ic">🗺️</div><h3>Advanced Planning <span class="gold">✦ PLANPLUS</span></h3><p>Stops, drive times, and timing on a drag timeline. Everyone sees the same plan.</p></div>
+      <div class="feature" data-feature="cars"><div class="ic">🚗</div><h3>Cars that sort themselves</h3><p>Tap a seat. The driver gets pickup order and leave-by times; riders get "be outside by".</p></div>
+      <div class="feature" data-feature="live"><div class="ic">📍</div><h3>Live when it starts</h3><p>Who's here, who's on the way, what's next. One button for the driver, confetti when the car lands.</p></div>
+      <div class="feature" data-feature="rsvp"><div class="ic">💌</div><h3>One-tap RSVPs</h3><p>I'm in, maybe, or can't. Everyone sees who's coming, and personal plans get invitations that feel like an event.</p></div>
+      <div class="feature" data-feature="money"><div class="ic">💸</div><h3>Money, settled</h3><p>Split what was spent and see exactly what you owe, with a Pay button.</p></div>
     </section>
 
     <footer>
@@ -56,5 +137,6 @@
     </footer>
   </div>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script src="demo.js"></script>
 </body>
 </html>
