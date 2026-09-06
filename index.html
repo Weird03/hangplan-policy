@@ -6,7 +6,8 @@
   <title>HangPlan — Plan the night with your people</title>
   <meta name="description" content="HangPlan is the group planning app: polls that find a time, routes with drive times, carpools that sort themselves, and a live screen for the night itself.">
   <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="story.css?v=4">
 </head>
 <body>
   <div class="wrap">
@@ -16,119 +17,310 @@
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
+        <a class="navcta" href="https://apps.apple.com/us/app/hangplan-organize-the-group/id6760122901">Get the app</a>
       </nav>
     </header>
 
-    <section class="hero">
-      <div>
-        <div class="eyebrow">FOR FRIEND GROUPS</div>
-        <h1>Plan the night.<br>Skip the group chat.</h1>
-        <p class="lead">One place to pick a time everyone can make, build the route, sort out who's driving, and see who's actually here once it starts.</p>
-        <a class="cta" href="#" id="store-link">Get it on the App Store</a>
-        <a class="cta secondary" href="support.html">Questions?</a>
-      </div>
-      <div class="phone" id="demo" aria-hidden="true">
-        <div class="screen">
+    <section class="story" id="story">
+      <div class="steps">
 
-          <!-- 1. RSVP -->
-          <div class="scene" data-scene="rsvp">
-            <div class="card">
-              <div class="label"><span class="dot"></span>THE PARTIERS</div>
-              <div class="big">Nachos then a movie</div>
-              <div class="sub">Fri Sep 11 · 7:00 PM · Nacho House, then 1 more stop</div>
-              <div class="rsvp">
-                <span class="opt" data-k="in">I'M IN</span>
-                <span class="opt" data-k="maybe">MAYBE</span>
-                <span class="opt" data-k="no">CAN'T</span>
-                <div class="tap"></div>
-              </div>
-            </div>
-            <div class="card faces">
-              <div class="label">WHO'S IN</div>
-              <div class="row">
-                <span class="face f1">A</span><span class="face f2">J</span><span class="face f3">M</span><span class="face f4 you">YOU</span>
-                <span class="count"></span>
-              </div>
-            </div>
+        <div class="step on" data-screen="home">
+          <div class="eyebrow">FOR FRIEND GROUPS</div>
+          <h1>Plan the night.<br>Skip the group chat.</h1>
+          <p class="lead">One place to pick a time everyone can make, build the route, sort out who's driving, and see who's actually here once it starts.</p>
+          <div class="ctas">
+            <a class="cta" href="https://apps.apple.com/us/app/hangplan-organize-the-group/id6760122901"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.7c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.8 1.3 10.3.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.4-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1.1-2.8-4.2zM13.9 5.1c.7-.9 1.2-2.1 1.1-3.3-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.2 1.1.1 2.3-.6 3-1.5z"/></svg>Get it on the App Store</a>
+            <a class="cta secondary" href="support.html">Questions?</a>
           </div>
-
-          <!-- 2. Poll grid -->
-          <div class="scene" data-scene="poll">
-            <div class="card">
-              <div class="label"><span class="dot" style="background:var(--going)"></span>WHEN ARE YOU FREE?</div>
-              <div class="grid">
-                <div class="gh"></div><div class="gh">THU</div><div class="gh">FRI</div><div class="gh">SAT</div><div class="gh">SUN</div>
-              </div>
-              <div class="best"><span class="pill">BEST WINDOW</span> Fri 7–9 PM · everyone free</div>
-            </div>
-          </div>
-
-          <!-- 3. Advanced planning timeline -->
-          <div class="scene" data-scene="plan">
-            <div class="card">
-              <div class="label"><span class="dot" style="background:var(--accent)"></span>THE PLAN <span class="gold">✦ PLANPLUS</span></div>
-              <div class="tl">
-                <div class="stop st1"><div class="t">7:00</div><div class="bar"></div><div><div class="name">Nacho House</div><div class="sub">1 hr · meet here</div></div></div>
-                <div class="drive d1"><div class="t"></div><div class="bar"></div><div class="sub">🚗 12 min drive</div></div>
-                <div class="stop st2"><div class="t">8:15</div><div class="bar"></div><div><div class="name">Movie</div><div class="sub">2 hr 10 · tickets bought</div></div></div>
-                <div class="drive d2"><div class="t"></div><div class="bar"></div><div class="sub">🚗 6 min drive</div></div>
-                <div class="stop st3"><div class="t">10:30</div><div class="bar"></div><div><div class="name">Ice cream</div><div class="sub">30 min · optional</div></div></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Cars -->
-          <div class="scene" data-scene="cars">
-            <div class="card">
-              <div class="label"><span class="dot" style="background:var(--amber)"></span>CARS</div>
-              <div class="car">
-                <div class="drv"><span class="face f1">A</span><div><div class="name">Alex's car</div><div class="sub">Leaves 6:25 · picks you up 6:40</div></div></div>
-                <div class="seats"><span class="seat s1"></span><span class="seat s2"></span><span class="seat s3"></span><span class="seat s4"></span></div>
-              </div>
-              <div class="car">
-                <div class="drv"><span class="face f3">M</span><div><div class="name">Morgan's car</div><div class="sub">Leaves 6:35</div></div></div>
-                <div class="seats"><span class="seat s5"></span><span class="seat s6"></span><span class="seat"></span></div>
-              </div>
-              <div class="note">Everyone drives themselves unless they grab a seat.</div>
-            </div>
-          </div>
-
-          <!-- 5. Live -->
-          <div class="scene" data-scene="live">
-            <div class="card live">
-              <div class="label"><span class="dot pulse" style="background:var(--going)"></span>HAPPENING NOW</div>
-              <div class="big">Nacho House</div>
-              <div class="status"><span class="st omw">ON THE WAY · 6 min</span><span class="st here">WE'RE HERE 🎉</span></div>
-              <div class="row">
-                <span class="face f1 here">A</span><span class="face f2 here">J</span><span class="face f3 here">M</span><span class="face f4 you here">YOU</span>
-              </div>
-              <div class="next"><span class="pill blue">NEXT</span> Movie · 9:15 · 4 min drive</div>
-            </div>
-            <div class="confetti"></div>
-          </div>
-
-          <!-- 6. Money -->
-          <div class="scene" data-scene="money">
-            <div class="card">
-              <div class="label"><span class="dot" style="background:var(--going)"></span>MONEY</div>
-              <div class="exp e1"><span class="face f1">A</span><div class="grow"><div class="name">Nachos</div><div class="sub">Alex paid · split 4 ways</div></div><div class="amt">$48</div></div>
-              <div class="exp e2"><span class="face f2">J</span><div class="grow"><div class="name">Movie tickets</div><div class="sub">Jordan paid · split 4 ways</div></div><div class="amt">$56</div></div>
-              <div class="owe"><div><div class="sub">YOU OWE</div><div class="big owe-amt">$26</div></div><button class="pay" type="button"><span class="p1">PAY</span><span class="p2">PAID ✓</span></button></div>
-            </div>
-          </div>
-
+          <div class="scrollhint">Scroll to see how it works <span>↓</span></div>
         </div>
-        <div class="dots"><i data-scene="rsvp"></i><i data-scene="poll"></i><i data-scene="plan"></i><i data-scene="cars"></i><i data-scene="live"></i><i data-scene="money"></i></div>
+
+        <div class="step" data-screen="detail">
+          <div class="eyebrow">ONE-TAP RSVPS</div>
+          <h2>Say you're in.<br>Or maybe. Or can't.</h2>
+          <p class="lead">Every plan opens with the three buttons that matter. Everyone sees who's coming, and the chat lives right underneath.</p>
+        </div>
+
+        <div class="step" data-screen="poll">
+          <div class="eyebrow" style="color:var(--going)">POLLS THAT DECIDE <span class="gold">✦ PLANPLUS</span></div>
+          <h2>Can't pick a time?<br>Paint when you're free.</h2>
+          <p class="lead">Drag across the hours that work. HangPlan overlays everyone's answers and finds the window. Ties spin a wheel. Find a time is a PlanPlus perk, and every group gets it with one unlock.</p>
+        </div>
+
+        <div class="step" data-screen="plan">
+          <div class="eyebrow" style="color:var(--accent)">ADVANCED PLANNING <span class="gold">✦ PLANPLUS</span></div>
+          <h2>Build the whole night,<br>stop by stop.</h2>
+          <p class="lead">Where to meet, how long you'll stay, real drive times in between. Gaps snap shut with a tap. Everyone sees the same plan.</p>
+        </div>
+
+        <div class="step" data-screen="cars">
+          <div class="eyebrow" style="color:var(--amber)">CARS</div>
+          <h2>Cars that sort<br>themselves.</h2>
+          <p class="lead">Everyone drives themselves unless they tap a seat. Drivers get a pickup order. Riders know exactly when to be outside.</p>
+        </div>
+
+        <div class="step" data-screen="live">
+          <div class="eyebrow" style="color:var(--going)">LIVE WHEN IT STARTS</div>
+          <h2>One screen for<br>the night itself.</h2>
+          <p class="lead">Who's here, who's on the way, what's next. One button for the driver. Confetti when the car lands.</p>
+        </div>
+
+        <div class="step" data-screen="invite">
+          <div class="eyebrow" style="color:#F472B6">PERSONAL PLANS</div>
+          <h2>Dates and 1-on-1s,<br>done right.</h2>
+          <p class="lead">Plans outside any group, with invitations that feel like an event instead of a text.</p>
+          <div class="ctas">
+            <a class="cta" href="https://apps.apple.com/us/app/hangplan-organize-the-group/id6760122901">Get it on the App Store</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="device-col" aria-hidden="true">
+        <div class="device">
+          <div class="frame">
+            <div class="screens" id="screens">
+              <div class="island"></div>
+              <div class="statusbar"><span class="sb-time">9:41</span><span class="sb-right"><svg width="17" height="11" viewBox="0 0 17 11"><rect x="0" y="7" width="3" height="4" rx="0.8" fill="#fff"/><rect x="4.5" y="5" width="3" height="6" rx="0.8" fill="#fff"/><rect x="9" y="2.5" width="3" height="8.5" rx="0.8" fill="#fff"/><rect x="13.5" y="0" width="3" height="11" rx="0.8" fill="#fff"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M8 9.2a1.4 1.4 0 110 2.8 1.4 1.4 0 010-2.8zM8 5.4c1.6 0 3 .6 4.1 1.6l-1.5 1.5A3.7 3.7 0 008 7.5c-1 0-1.9.4-2.6 1L3.9 7C5 6 6.4 5.4 8 5.4zM8 1.5c2.6 0 5 1 6.8 2.7l-1.5 1.5A7.5 7.5 0 008 3.6a7.5 7.5 0 00-5.3 2.1L1.2 4.2A9.6 9.6 0 018 1.5z" fill="#fff"/></svg><svg width="27" height="12" viewBox="0 0 27 12"><rect x="0.5" y="0.5" width="22" height="11" rx="3" stroke="#fff" stroke-opacity=".4" fill="none"/><rect x="2" y="2" width="19" height="8" rx="1.8" fill="#fff"/><path d="M24.5 4v4a2 2 0 000-4z" fill="#fff" fill-opacity=".4"/></svg></span></div>
+
+              <!-- ============ HOME ============ -->
+              <div class="screen on" data-screen="home">
+                <div class="hd">
+                  <div class="hd-row">
+                    <div class="hd-title">What's <span>Up</span></div>
+                    <div class="hd-icons">
+                      <i class="ib"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></i>
+                      <i class="ib"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i>
+                    </div>
+                  </div>
+                  <div class="seg"><div class="seg-b on">Plans<i class="dot" style="background:#3B82F6"></i></div><div class="seg-b">Personal<i class="dot"></i></div></div>
+                  <div class="chips"><div class="chip vote"><i></i>1 needs your vote</div></div>
+                </div>
+                <div class="list">
+                  <div class="card ongoing">
+                    <div class="accent" style="background:#4ADE80;opacity:1"></div>
+                    <div class="cc">
+                      <div class="ch"><div class="livechip"><i></i>Live</div><div class="rbadge going">GOING</div></div>
+                      <div class="ct">Taco Tuesday</div>
+                      <div class="cm"><span class="mg" style="color:#3B82F6">THE PARTIERS</span><span class="md">//</span><span class="mt">Started 7:00 PM</span></div>
+                      <div class="cf"><div class="gb"><span class="gc">2</span><span class="gl">here</span><span class="md">/</span><span class="gc" style="color:#FAFAFA">4</span><span class="gl" style="color:#A1A1AA">going</span></div><div class="avs"><span class="av">A</span><span class="av">J</span><span class="av">M</span><span class="av">C</span></div></div>
+                    </div>
+                  </div>
+                  <div class="card" id="home-card">
+                    <div class="accent" style="background:#3B82F6"></div>
+                    <div class="cc">
+                      <div class="ch"><div class="datechip">FRI</div><div class="rbadge going" id="home-badge" hidden>GOING</div></div>
+                      <div class="ct">Nachos then a movie</div>
+                      <div class="cm"><span class="mg" style="color:#3B82F6">THE PARTIERS</span><span class="md">//</span><span class="mt">7:00 PM</span></div>
+                      <div class="cl">Nacho House</div>
+                      <div class="cf"><div class="gb"><span class="gc" id="home-count">3</span><span class="gl">going</span></div><div class="avs"><span class="av">A</span><span class="av">J</span><span class="av">M</span><span class="av you" id="home-you" hidden>C</span></div></div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="accent" style="background:#3B82F6"></div>
+                    <div class="cc">
+                      <div class="ch"><div style="display:flex;gap:6px;align-items:center"><div class="pollchip">Poll</div><div class="datechip">ENDS SEP 9</div></div></div>
+                      <div class="ct">Where should we eat Saturday?</div>
+                      <div class="cm"><span class="mg" style="color:#A78BFA">THE OTHER PARTIERS</span><span class="md">//</span><span class="mt">Voting open</span></div>
+                      <div class="cf"><div class="gb"><span class="votetag">✋ VOTE BY TUE</span><span class="gc" style="color:#3B82F6">3</span><span class="gl" style="color:#3B82F6">votes</span></div><div class="avs"><span class="av">N</span><span class="av">E</span></div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slide-backdrop" id="home-backdrop"></div>
+                <div class="slide-wrap" id="home-slide">
+                  <div class="slide-title">Nachos then a movie</div>
+                  <div class="slide-pill">
+                    <div class="so" data-k="in"><i style="border-color:#4ADE80;color:#4ADE80">✓</i><span style="color:#4ADE80">IN</span></div>
+                    <div class="so" data-k="maybe"><i style="border-color:#FBBF24;color:#FBBF24">?</i><span style="color:#FBBF24">MAYBE</span></div>
+                    <div class="so" data-k="no"><i style="border-color:#FB7185;color:#FB7185">✕</i><span style="color:#FB7185">CAN'T</span></div>
+                    <div class="so" data-k="hide"><i style="border-color:#A1A1AA;color:#A1A1AA">◡</i><span style="color:#A1A1AA">HIDE</span></div>
+                  </div>
+                  <div class="slide-hint">SLIDE, THEN LET GO</div>
+                </div>
+                <div class="fab">+</div>
+                <div class="tabbar">
+                  <div class="tab on"><svg width="22" height="22" viewBox="0 0 24 24" fill="#FF6B35"><rect x="3" y="5" width="18" height="16" rx="3"/><rect x="3" y="9" width="18" height="2" fill="#09090B"/><rect x="7" y="2" width="2" height="5" rx="1"/><rect x="15" y="2" width="2" height="5" rx="1"/></svg><span>Plans</span></div>
+                  <div class="tab"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M2.5 19c0-3.5 3-5.5 6.5-5.5s6.5 2 6.5 5.5"/><path d="M15.5 13.5c3 0 5.5 1.5 5.5 4.5"/></svg><span>Groups</span></div>
+                  <div class="tab"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2"><circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="10" r="3.2"/><path d="M5.5 18.5c1.5-2.5 3.8-3.5 6.5-3.5s5 1 6.5 3.5"/></svg><span>You</span></div>
+                </div>
+              </div>
+
+              <!-- ============ PLAN DETAIL ============ -->
+              <div class="screen" data-screen="detail">
+                <div class="topbar"><span class="back">‹ Back</span><span class="tb-right"><span class="tbpill neon">Share</span><span class="tbpill orange">Edit</span></span></div>
+                <div class="pad">
+                  <div class="hero">
+                    <div class="herobar" style="background:#3B82F6"></div>
+                    <div class="hg"><i class="hgdot" style="background:#3B82F6"></i><span class="hgname">THE PARTIERS</span><span class="hgmeta">· in 5 days</span><span class="hbadge" style="color:#3B82F6;background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3)">FRI</span></div>
+                    <div class="htitle">Nachos then a movie</div>
+                    <div class="hfacts">
+                      <div class="hf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Fri, Sep 11 · 7:00 PM</span></div>
+                      <div class="hf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Nacho House <em>then 1 more stop</em></span><b class="go">GO</b></div>
+                    </div>
+                    <div class="rsvp" id="d-rsvp">
+                      <div class="rs" data-k="in">I'M IN</div><div class="rs" data-k="maybe">MAYBE</div><div class="rs" data-k="no">CAN'T</div>
+                    </div>
+                    <div class="hpeople"><div class="hfaces"><span class="hface" style="background:#60A5FA">A</span><span class="hface" style="background:#F472B6">J</span><span class="hface" style="background:#FBBF24">M</span><span class="hface you" id="d-you" hidden>C</span></div><span class="hptext" id="d-ptext">Alex, Jordan, Morgan are going</span></div>
+                  </div>
+
+                  <div class="sect"><div class="sh"><i class="sdot" style="background:#4ADE80"></i><span>WHO'S IN</span><span class="nudge">NUDGE 2</span></div>
+                    <div class="scard rows">
+                      <div class="row head"><i class="dash" style="background:#4ADE80"></i><span class="rl">GOING</span><span class="rn" style="color:#4ADE80" id="d-going-n">3</span><span class="chev">⌃</span></div>
+                      <div class="row"><span class="hface" style="background:#60A5FA">A</span><span class="rname">Alex</span></div>
+                      <div class="row"><span class="hface" style="background:#F472B6">J</span><span class="rname">Jordan</span></div>
+                      <div class="row" id="d-you-row" hidden><span class="hface you">C</span><span class="rname">You</span></div>
+                                          </div>
+                  </div>
+
+                  <div class="sect"><div class="sh"><i class="sdot" style="background:#FF6B35"></i><span>CHAT</span></div>
+                    <div class="msg"><span class="hface" style="background:#60A5FA">A</span><div class="bubble"><b>Alex</b>bringing the chips 🫡<i>6:12 PM</i></div></div>
+                    <div class="msg mine" id="d-msg" hidden><div class="bubble mine">leaving at 6:40, need anything?<i>6:15 PM</i></div></div>
+                  </div>
+                </div>
+                <div class="chatbar"><div class="chatin">say something…</div><div class="send">→</div></div>
+              </div>
+
+              <!-- ============ POLL ============ -->
+              <div class="screen" data-screen="poll">
+                <div class="topbar"><span class="back">‹ Back</span></div>
+                <div class="pad">
+                  <div class="hero" style="border-color:rgba(59,130,246,.35)">
+                    <div class="herobar" style="background:#3B82F6"></div>
+                    <div class="hg"><span class="pollchip">Poll</span><span class="hgmeta">ends in 2 days</span><span class="gold" style="margin-left:auto">✦ PLANPLUS</span></div>
+                    <div class="htitle" style="font-size:24px;line-height:28px">Trivia night. When?</div>
+                    <div class="hprog"><i class="on"></i><i class="on"></i><i class="on"></i><i id="p-seg4"></i></div>
+                    <div class="hgmeta" id="p-hint">3 of 4 answered · waiting on you</div>
+                  </div>
+
+                  <div class="sect"><div class="sh"><i class="check" id="p-check">✓</i><span>WHEN</span><span class="hgmeta" style="margin-left:2px">find a time</span><span class="chev" style="margin-left:auto">⌃</span></div>
+                    <div class="qtext">When are you free? Drag across the hours that work.</div>
+                    <div class="gridcard">
+                      <div class="ghead"><span class="gh0"></span><span class="gday"><b>THU</b>10</span><span class="gday"><b>FRI</b>11</span><span class="gday"><b>SAT</b>12</span><span class="gday"><b>SUN</b>13</span></div>
+                      <div class="grid" id="p-grid"></div>
+                      <div class="legend"><i class="sw me"></i>You <i class="sw h1"></i><i class="sw h2"></i><i class="sw h3"></i>others free<span class="clear">⊗ CLEAR</span></div>
+                    </div>
+                  </div>
+
+                  <div class="sect" id="p-best" hidden><div class="sh"><i class="sdot" style="background:#4ADE80"></i><span>BEST WINDOWS</span><span class="hgmeta">from 4 of 4</span></div>
+                    <div class="bestrow"><i class="radio" id="p-radio"></i><div><div class="bt">Fri · 7:00 – 9:00 PM</div><div class="bs">EVERYONE'S FREE</div></div></div>
+                    <div class="lockin" id="p-lock">LOCK IT IN</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============ ADVANCED PLAN ============ -->
+              <div class="screen" data-screen="plan">
+                <div class="topbar plan"><span class="back">Done</span><div class="tbc"><div class="tbt">The Plan</div><div class="tbs">Nachos then a movie</div></div><span class="gold">✦ PLANPLUS</span></div>
+                <div class="pad" style="padding-top:8px">
+                  <div class="caption">TALLER BLOCK = LONGER STAY</div>
+                  <div class="tl" id="plan-tl">
+                    <div class="trow"><span class="tt">6:30</span><div class="block meetup" style="height:56px"><div class="bacc" style="background:#F59E0B"></div><div class="bb"><div class="bth">Meet at Caden's <em>gather</em></div><div class="bsub">15 min · everyone leaves together</div></div></div></div>
+                    <div class="trow con"><span class="tt"></span><div class="connector"><i></i><span class="cpill">🚗 12 min from Caden's</span></div></div>
+                    <div class="trow"><span class="tt">7:00</span><div class="block" style="height:92px"><div class="bacc" style="background:#3B82F6"></div><div class="bb"><div class="bth">Nacho House</div><div class="bsub">1 hr · tacos first</div></div><div class="grip"></div></div></div>
+                    <div class="trow con"><span class="tt"></span><div class="connector"><i></i><span class="cpill">🚗 8 min from Nacho House</span></div></div>
+                    <div class="trow"><span class="tt">8:15</span><div class="block" id="plan-movie" style="height:132px"><div class="bacc" style="background:#FF6B35"></div><div class="bb"><div class="bth">Movie</div><div class="bsub" id="plan-movie-sub">2 hr 10 · tickets bought</div></div><div class="grip"></div></div></div>
+                    <div class="trow gap" id="plan-gap"><span class="tt"></span><div class="free">20m free · tap to stay at Movie</div></div>
+                    <div class="trow con"><span class="tt"></span><div class="connector"><i></i><span class="cpill">🚗 6 min from Movie</span></div></div>
+                    <div class="trow"><span class="tt" id="plan-ice-t">10:50</span><div class="block" style="height:60px"><div class="bacc" style="background:#4ADE80"></div><div class="bb"><div class="bth">Ice cream</div><div class="bsub">30 min · optional</div></div></div></div>
+                    <div class="trow"><span class="tt"></span><div class="addstop">+ Add stop</div></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============ CARS ============ -->
+              <div class="screen" data-screen="cars">
+                <div class="topbar"><span class="back">‹ Back</span></div>
+                <div class="pad">
+                  <div class="hero compact">
+                    <div class="herobar" style="background:#3B82F6"></div>
+                    <div class="hg"><i class="hgdot" style="background:#3B82F6"></i><span class="hgname">THE PARTIERS</span><span class="hbadge" style="color:#3B82F6;background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3)">FRI</span></div>
+                    <div class="htitle" style="font-size:24px;line-height:28px">Nachos then a movie</div>
+                  </div>
+                  <div class="sect"><div class="sh"><i class="sdot" style="background:#F59E0B"></i><span>CARS</span><span class="hgmeta" id="c-count">2 cars · 5 seats open</span><span class="mypill" style="margin-left:auto">I CAN DRIVE</span></div>
+                    <div class="scard car" id="car-alex">
+                      <div class="carrow"><span class="hface big" style="background:#60A5FA">A</span><div class="carinfo"><div class="carname">Alex's car</div><div class="carsub" id="c-alex-sub">Leaves 6:25 · from the meetup</div></div></div>
+                      <div class="seats"><span class="seat full" style="--c:#60A5FA">A</span><span class="seat" id="c-seat1"></span><span class="seat"></span><span class="seat"></span><span class="seathint" id="c-hint1">TAP A SEAT</span></div>
+                    </div>
+                    <div class="scard car">
+                      <div class="carrow"><span class="hface big" style="background:#FBBF24">M</span><div class="carinfo"><div class="carname">Morgan's car</div><div class="carsub">Leaves 6:35 · from home</div></div></div>
+                      <div class="seats"><span class="seat full" style="--c:#FBBF24">M</span><span class="seat" id="c-seat2"></span><span class="seat"></span><span class="seathint">TAP A SEAT</span></div>
+                    </div>
+                    <div class="scard needs" id="c-needs">
+                      <div class="needslabel">NEEDS A RIDE</div>
+                      <div class="needstext">Jordan hasn't got a seat yet.</div>
+                      <div class="pull" id="c-pull">+ JORDAN</div>
+                    </div>
+                    <div class="needride" id="c-self">I need a ride</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============ LIVE ============ -->
+              <div class="screen" data-screen="live">
+                <div class="livehd">
+                  <div class="chevdown">⌄</div>
+                  <div class="liverow"><i class="pulse"></i><span>LIVE · YOU'RE DRIVING</span></div>
+                  <div class="livetitle">Nachos then a movie</div>
+                  <div class="livesub" id="l-sub">1 of 2 picked up · 1 to go</div>
+                </div>
+                <div class="pad" style="padding-top:24px">
+                  <div class="nowcard" id="l-now">
+                    <div class="nowlabel" id="l-label">NEXT STOP · PICKUP 2 OF 2</div>
+                    <div class="nowtitle" id="l-title">Jordan</div>
+                    <div class="nowsub" id="l-nsub">1498 Maple Hills Drive</div>
+                    <div class="facts" id="l-facts"><span style="color:#F59E0B">⏱ there by 6:48</span><span>👤 waiting for you</span></div>
+                    <div class="dirbtn" id="l-dir"><span>➤</span><b id="l-dirtext">1498 Maple Hills Drive</b><span>›</span></div>
+                  </div>
+                  <div class="sect"><div class="sh"><i class="sdot" style="background:#F59E0B"></i><span>YOUR TRIP</span><span class="hgmeta">arrive 7:00 PM</span></div>
+                    <div class="scard trip">
+                      <div class="trow2 done"><i></i><span>Head out</span><b style="color:#4ADE80">✓</b></div>
+                      <div class="trow2 done"><i></i><span>Morgan</span><b style="color:#4ADE80">✓</b></div>
+                      <div class="trow2 current" id="l-t-jordan"><i></i><span>Jordan</span><b></b></div>
+                      <div class="trow2" id="l-t-dest"><i></i><span>Nacho House</span><b>7:00 PM</b></div>
+                    </div>
+                    <div class="riders"><div class="rchip"><span class="hface" style="background:#FBBF24">M</span><div><div class="rcn">Morgan</div><div class="rcs" style="color:#4ADE80">PICKED UP</div></div></div><div class="rchip"><span class="hface" style="background:#F472B6">J</span><div><div class="rcn">Jordan</div><div class="rcs" id="l-jstate" style="color:#71717A">WAITING</div></div></div></div>
+                  </div>
+                </div>
+                <div class="livecta"><div class="ctabtn" id="l-cta">Picked up Jordan</div></div>
+                <div class="confetti" id="l-conf"></div>
+              </div>
+
+              <!-- ============ PERSONAL INVITE ============ -->
+              <div class="screen invite" data-screen="invite">
+                <div class="wash"></div>
+                <div class="close">✕</div>
+                <div class="ibody">
+                  <div class="fromrow"><span class="fromring"><span class="fromav">A</span></span><span class="fromlabel">ALEX INVITED YOU</span></div>
+                  <div class="iemoji" id="i-emoji">🌮</div>
+                  <div class="ititle">Tacos &amp; a walk</div>
+                  <div class="iline"></div>
+                  <div class="ifacts">
+                    <div class="if"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Sat, Sep 12 · 6:30 PM</div>
+                    <div class="if"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Nacho House</div>
+                    <div class="inote">“no phones, just tacos”</div>
+                  </div>
+                  <div class="igoing"><span class="hface" style="background:#60A5FA;border-color:#09090B">A</span><span class="hface" style="background:#FBBF24;border-color:#09090B;margin-left:-8px">M</span><span class="igtext">Alex + 1 going</span></div>
+                  <div class="ianswer">
+                    <div class="youin" id="i-youin" hidden>✓ YOU'RE IN</div>
+                    <div class="icta" id="i-cta">I'M IN &nbsp;🌮</div>
+                    <div class="ighost" id="i-ghost">Can't make it</div>
+                  </div>
+                </div>
+                <div class="confetti" id="i-conf"></div>
+              </div>
+
+              <div class="finger" id="finger"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="features">
-      <div class="feature" data-feature="poll"><div class="ic">🗳️</div><h3>Polls that decide</h3><p>Paint when you're free and the app finds the window. Vote on the place. Ties spin a wheel.</p></div>
-      <div class="feature" data-feature="plan"><div class="ic">🗺️</div><h3>Advanced Planning <span class="gold">✦ PLANPLUS</span></h3><p>Stops, drive times, and timing on a drag timeline. Everyone sees the same plan.</p></div>
-      <div class="feature" data-feature="cars"><div class="ic">🚗</div><h3>Cars that sort themselves</h3><p>Tap a seat. The driver gets pickup order and leave-by times; riders get "be outside by".</p></div>
-      <div class="feature" data-feature="live"><div class="ic">📍</div><h3>Live when it starts</h3><p>Who's here, who's on the way, what's next. One button for the driver, confetti when the car lands.</p></div>
-      <div class="feature" data-feature="rsvp"><div class="ic">💌</div><h3>One-tap RSVPs</h3><p>I'm in, maybe, or can't. Everyone sees who's coming, and personal plans get invitations that feel like an event.</p></div>
-      <div class="feature" data-feature="money"><div class="ic">💸</div><h3>Money, settled</h3><p>Split what was spent and see exactly what you owe, with a Pay button.</p></div>
+    <section class="closing">
+      <img src="icon.png" alt="" class="closing-icon">
+      <h2>Ready when your group is.</h2>
+      <p class="lead">Free on the App Store. PlanPlus is a one-time unlock per group.</p>
+      <a class="cta" href="https://apps.apple.com/us/app/hangplan-organize-the-group/id6760122901">Get it on the App Store</a>
     </section>
 
     <footer>
@@ -137,6 +329,6 @@
     </footer>
   </div>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
-  <script src="demo.js"></script>
+  <script src="story.js?v=4"></script>
 </body>
 </html>
