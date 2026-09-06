@@ -3,19 +3,17 @@
    Screen internals are built at the app's real sizes (390 x 844 pt) and
    scaled with --s, so the values below match src/lib/theme.ts exactly.
    ========================================================================== */
-:root { --s: 0.72; --sw: 390px; --sh: 844px; }
-@media (max-height: 780px) { :root { --s: 0.62; } }
-@media (max-height: 660px) { :root { --s: 0.54; } }
+:root { --s: 0.8; --sw: 390px; --sh: 844px; } /* --s is set from the viewport in story.js */
 
 nav.links .navcta { color: var(--primary); }
 
-/* ---------- layout ---------- */
-.story { display: grid; grid-template-columns: minmax(0, 1fr) calc(var(--sw) * var(--s) + 28px); gap: 56px; align-items: start; }
-.steps { min-width: 0; }
-.step { min-height: 92vh; display: flex; flex-direction: column; justify-content: center; opacity: 0.18; transform: translateY(6px); transition: opacity .45s ease, transform .45s ease; }
-.step.on { opacity: 1; transform: none; }
-.step:first-child { min-height: 88vh; }
-.step:last-child { min-height: 80vh; }
+/* ---------- layout: the whole story is one pinned stage ---------- */
+.story { position: relative; height: calc(var(--n, 7) * 100vh + 100vh); width: min(1060px, 100vw - 48px); margin-left: calc(50% - min(1060px, 100vw - 48px) / 2); }
+.stage { position: sticky; top: 0; height: 100vh; height: 100dvh; display: grid; grid-template-columns: minmax(0, 1fr) calc(var(--sw) * var(--s) + 28px); gap: 56px; align-items: center; }
+.steps { display: grid; min-width: 0; }
+.left { min-width: 0; }
+.step { grid-area: 1 / 1; align-self: center; opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .55s cubic-bezier(.2,.8,.2,1); pointer-events: none; }
+.step.on { opacity: 1; transform: none; pointer-events: auto; }
 .step h1, .step h2 { font-size: 46px; line-height: 1.05; letter-spacing: -1px; margin: 12px 0 16px; font-weight: 800; }
 .step .lead { font-size: 18px; color: var(--text-2); font-weight: 500; max-width: 480px; margin: 0; }
 .ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
@@ -25,8 +23,11 @@ nav.links .navcta { color: var(--primary); }
 .scrollhint span { display: inline-block; animation: bob 1.6s ease-in-out infinite; }
 @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
 .eyebrow .gold { margin-left: 8px; }
+.rail { display: flex; gap: 6px; margin-top: 32px; }
+.rail i { width: 6px; height: 6px; border-radius: 3px; background: var(--border); transition: width .3s, background .3s; cursor: pointer; }
+.rail i.on { width: 20px; background: var(--primary); }
 
-.device-col { position: sticky; top: calc(50vh - var(--sh) * var(--s) / 2 - 14px); align-self: start; padding: 24px 0; display: flex; justify-content: center; }
+.device-col { display: flex; justify-content: center; }
 
 .closing { text-align: center; padding: 40px 0 80px; }
 .closing-icon { width: 72px; height: 72px; border-radius: 20px; margin-bottom: 16px; }
@@ -34,13 +35,15 @@ nav.links .navcta { color: var(--primary); }
 .closing .lead { margin: 0 auto; max-width: 440px; }
 
 @media (max-width: 860px) {
-  :root { --s: 0.5; }
-  .story { display: flex; flex-direction: column; gap: 0; }
-  .device-col { order: -1; top: 8px; z-index: 2; padding: 8px 0 0; }
-  .step { min-height: 62vh; justify-content: flex-start; padding-top: 28px; text-align: center; align-items: center; }
-  .step:first-child { min-height: 62vh; }
-  .step h1, .step h2 { font-size: 34px; }
+  .stage { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 20px; align-items: start; padding-top: 12px; }
+  .device-col { order: -1; }
+  .steps { align-self: start; }
+  .step { text-align: center; align-items: center; display: flex; flex-direction: column; }
+  .step h1, .step h2 { font-size: 30px; }
+  .step .lead { font-size: 16px; }
   .ctas { justify-content: center; }
+  .scrollhint { margin-top: 20px; }
+  .rail { justify-content: center; margin-top: 20px; }
   nav.links .navcta { display: none; }
 }
 

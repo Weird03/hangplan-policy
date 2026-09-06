@@ -221,21 +221,40 @@
     run(key);
   }
 
-  // Pick the step whose box is nearest the viewport's middle.
+  // ---- scroll drives the story: each step owns one viewport of scroll ----
+  var story = document.getElementById('story'), stepsEl = document.querySelector('.steps');
+  var N = steps.length, mobile = false;
+  var rail = document.createElement('div'); rail.className = 'rail';
+  steps.forEach(function (s, i) {
+    var d = document.createElement('i'); d.dataset.i = i; rail.appendChild(d);
+    d.addEventListener('click', function () { window.scrollTo({ top: story.offsetTop + i * window.innerHeight + 2, behavior: 'smooth' }); });
+  });
+  stepsEl.parentNode.insertBefore(rail, stepsEl.nextSibling);
+  var dots = [].slice.call(rail.children);
+
+  function layout() {
+    mobile = window.innerWidth <= 860;
+    var vh = window.innerHeight, vw = window.innerWidth, s;
+    if (mobile) s = Math.min(0.52, (vh * 0.5 - 40) / 844, (vw - 60) / 390);
+    else s = Math.min(0.9, (vh - 110) / 844, (vw - 560) / 390);
+    s = Math.max(0.42, s);
+    document.documentElement.style.setProperty('--s', s.toFixed(3));
+    story.style.height = ((N + 1) * vh) + 'px';
+  }
+
   var ticking = false;
   function update() {
     ticking = false;
-    var mid = window.innerHeight * 0.5, best = null, bestD = Infinity;
-    steps.forEach(function (s) {
-      var r = s.getBoundingClientRect();
-      var d = (r.top <= mid && r.bottom >= mid) ? 0 : Math.min(Math.abs(r.top - mid), Math.abs(r.bottom - mid));
-      if (d < bestD) { bestD = d; best = s; }
-    });
-    if (best) activate(best.dataset.screen);
+    var scrolled = -story.getBoundingClientRect().top, vh = window.innerHeight;
+    var idx = Math.floor(scrolled / vh + 0.02);
+    idx = Math.max(0, Math.min(N - 1, idx));
+    dots.forEach(function (d, i) { d.classList.toggle('on', i === idx); });
+    activate(steps[idx].dataset.screen);
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+  window.addEventListener('resize', function () { layout(); onScroll(); });
   document.addEventListener('visibilitychange', function () { if (document.hidden) clearAll(); else if (active) run(active); });
+  layout();
   update();
 })();
