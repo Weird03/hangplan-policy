@@ -8,6 +8,10 @@
   <link rel="icon" href="favicon.png">
   <link rel="stylesheet" href="styles.css?v=6">
   <link rel="stylesheet" href="story.css?v=6">
+  <script>
+    // Auth emails that fall back to the site root (recovery tokens or an error in the fragment) belong on the reset page.
+    (function(){var h=location.hash||'';if(/type=recovery|error_description|error=/.test(h))location.replace('reset-password.html'+h);})();
+  </script>
 </head>
 <body>
   <div class="wrap">
